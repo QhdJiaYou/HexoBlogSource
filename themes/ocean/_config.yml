@@ -1,0 +1,61 @@
+# Menu
+menu:
+  Home: /
+  Archives: /archives
+  Gallery: https://www.douyin.com/user/MS4wLjABAAAA4EevfdHrS1s-urfPJWWJEs-_c_qLu19jtr-eYdpBNBk?enter_from=main_page&enter_method=top_bar
+  About: https://github.com/QhdJiaYou
+# rss: https://github.com/QhdJiaYou
+
+# Miscellaneous
+favicon: /favicon.ico
+brand: /images/hexo.svg
+
+# Ocean Video
+# Because I put videos in multiple formats on the same path, I just labeled the path here.
+ocean:
+  overlay: true
+  path: /images/ocean/
+  brand: /images/hexo-inverted.svg
+
+# Content
+excerpt_link: Read More...
+
+# MIIT ICP/IP/DOMAIN
+beian:
+  enable: true
+  number: ZHWANGART
+  url: https://beian.miit.gov.cn/
+
+
+# Tags
+show_count: false
+
+# Toc
+toc: true
+
+# fancybox
+fancybox: true
+
+# 是否显示复制按钮
+show_copy_btn: true
+
+# Gitalk
+gitalk:
+  enable: false # true
+  clientID: # GitHub Application Client ID
+  clientSecret: # Client Secret
+  repo: # Repository name
+  owner: # GitHub ID
+  admin: # GitHub ID
+
+# Valine
+valine:
+  enable: false # true
+  el: 'vcomments'
+  appId:
+  appKey:
+  notify: false
+  verify: true
+  avatar: 'mp'
+  pageSize: '10'
+  placeholder: '请输入...'
