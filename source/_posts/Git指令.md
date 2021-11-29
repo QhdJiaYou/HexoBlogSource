@@ -17,6 +17,9 @@ git config --global user.name "username"
 
 git config --global user.email "email"
 
+3、多账户配置流程，主要是为多个邮箱账号生成ssh密钥对
+https://www.jianshu.com/p/b6bd61e1bc5f
+
 
 
 新建分支      git branch dev
