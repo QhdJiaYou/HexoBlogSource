@@ -21,6 +21,8 @@ git config --global user.email "email"
 https://www.jianshu.com/p/b6bd61e1bc5f
 
 
+<!-- ![avatar](https://github.com/QhdJiaYou/Image/blob/master/gitOverview.png) -->
+
 
 新建分支      git branch dev
 
