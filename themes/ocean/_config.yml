@@ -23,7 +23,7 @@ excerpt_link: Read More...
 # MIIT ICP/IP/DOMAIN
 beian:
   enable: true
-  number: ZHWANGART
+  number: quhandong
   url: https://beian.miit.gov.cn/
 
 

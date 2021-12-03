@@ -1,63 +1,51 @@
 ---
-title: react基础
+title: 初识React
 date: 2020-09-01 17:50:43
 ---
 
-## **React**生命周期函数
+## React生命周期函数
 
 
 
-- **挂载阶段只执行一次**
+### **挂载阶段只执行一次**
 
-**constructor()**一般用来做初始化工作，例如初始化state
+`constructor()`一般用来做初始化工作，例如初始化state
 
-**componentWillMount()**   已更名为  UNSAFE_componentWillMount()  
+`componentWillMount()`   已更名为  UNSAFE_componentWillMount()  如果在此函数中使用setState()并不会触发渲染，因为render()还没有执行，所以一般初始化state使用constructor()函数。
 
-   *如果在此函数中使用setState()并不会触发渲染，因为render()还没有执行，所以一般初始化state使用constructor()函数。*
+`render()`
 
-**render()**
-
-**componentDidMount() **一般用于请求异步加载的数据，添加事件监听
+`componentDidMount()`一般用于请求异步加载的数据，添加事件监听
 
 
 
-- **更新阶段可多次执行，当props或state发生变化时**
+### 更新阶段可多次执行，当props或state发生变化时
 
-**componentWillReceiveProps(object:nextProps)**
+`componentWillReceiveProps(object:nextProps)` 已更名为  UNSAFE_componentWillReceiveProps()       已加载组件收到新的props时调用：如果父组件导致该组件重新渲染，这个方法也会被调用，即使props没有任何改变，如果您只想处理更改，请务必比较当前值和下一个值，你可以比较this.props和nextProps，并在这个方法中使用this.setState()执行状态转换。
 
- 已更名为  UNSAFE_componentWillReceiveProps()       *已加载组件收到新的props时调用：如果父组件导致该组件重新渲染，这个方法也会被调用，即使props没有任何改变，如果您只想处理更改，请务必比较当前值和下一个值，你可以比较this.props和nextProps，并在这个方法中使用this.setState()执行状态转换。*
+`shouldComponentUpdate(object:nextProps, object:nextState)`组件判断是否重新渲染时调用
 
-**shouldComponentUpdate(object:nextProps, object:nextState)**组件判断是否重新渲染时调用
+`componentWillUpdate(object:nextProps, object:nextState)`已更名为 UNSAFE_componentWillUpdate() 组件被重新渲染之前: 不要在这个函数中使用setState()
 
-**componentWillUpdate(object:nextProps, object:nextState)** 
+`render()`
 
-已更名为 UNSAFE_componentWillUpdate() *组件被重新渲染之前: 不要在这个函数中使用setState()*
+`componentDidUpdate(object:prevProps, object:prevState)`处理在生命周期中由于state或者props的变化触发新的请求
 
-**render()**
-
-**componentDidUpdate(object:prevProps, object:prevState)**
-
-处理在生命周期中由于state或者props的变化触发新的请求
-
-**componentWillUnmount()**
-
-已经移除真实DOM时
+`componentWillUnmount()`已经移除真实DOM时
 
 
 
 **React旧版本生命周期图**：
 
-图片链接<https://upload-images.jianshu.io/upload_images/5287253-bd799f87556b5ecc.png>
+![avatar](https://upload-images.jianshu.io/upload_images/5287253-315eac1c26082f08.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
-![1566271418793](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\1566271418793.png)
 
 **React新版本生命周期图**：
 
-图片链接<https://upload-images.jianshu.io/upload_images/5287253-82f6af8e0cc9012b.png>
+![avatar](https://upload-images.jianshu.io/upload_images/5287253-19b835e6e7802233.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
-![1566271765499](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\1566271765499.png)
 
-#### 变更的部分
+### 变更的部分
 
 新的react生命周期去掉了以下三个：
 
@@ -72,7 +60,7 @@ date: 2020-09-01 17:50:43
 
 当然，这个更替是缓慢的，在整个16版本里都能无障碍的使用旧的三生命周期，但值得注意的是，旧的生命周期（unsafe）不能和新的生命周期同时出现在一个组件，否则会报错“你使用了一个不安全的生命周期”。
 
-#### 为什么要改
+### 为什么要改
 
 旧的生命周期十分完整，基本可以捕捉到组件更新的每一个state/props/ref，没有什么从逻辑上的毛病。
 
@@ -80,7 +68,7 @@ date: 2020-09-01 17:50:43
 
 生命周期一旦被打断，下次恢复的时候又会再跑一次之前的生命周期，因此componentWillMount，componentWillReceiveProps， componentWillUpdate都不能保证只在挂载/拿到props/状态变化的时候刷新一次了，所以这三个方法被标记为不安全。
 
-#### 两个新的生命周期
+### 两个新的生命周期
 
 - **static getDerivedStateFromProps(nextProps, prevState)**
 
@@ -252,7 +240,6 @@ ReactDom.render(
 | :---: | ------ | ---- | ----------------- | -------- |
 | True  | False  | /one | /one/             | True     |
 | True  | True   | /one | /one/             | False    |
-|       |        |      |                   |          |
 
 **注意**：通过hash路由进行页面跳转导航时，只会加载相应的组件内容，运行组件的生命周期函数，不会运行模块的代码，也就是组件之外的属于模块级别的代码，这些属于模块的代码只在第一次加载该页面时运行。
 
