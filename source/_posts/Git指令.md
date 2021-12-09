@@ -28,7 +28,7 @@ git config --global user.email "email"
 |     级别    | 文件存储位置 | 查看命令 | 优先级 |
 | :-------: | ------ | ------ | ------- |
 | 系统级别 | /etc/gitconfig | git config --system --list |最低 |
-| 用户级别 | ~.gitconfig | git config --global --list |中 |
+| 用户级别 | ~/.gitconfig | git config --global --list |中 |
 | 项目级别 | .git/config | git config --local --list |最高 |
 
 **【备注】所以当我们想单独配置某个项目的user.name user.email 以及远程仓库地址, 都可以通过修改项目的.git/config文件实现，可以实现一台电脑同时使用多个github账号**
